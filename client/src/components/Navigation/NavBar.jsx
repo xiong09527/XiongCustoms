@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Backdrop from "../Backdrop";
+import xiongLogo from '../../assets/Images/xiongLogo.png';
 
 // Navigation items and urls for routing
 const navItem = [
@@ -101,7 +102,11 @@ const NavBar = () => {
 
             <div className="text-xl font-bold md:px-0  text-[#1D2026]  mr-5 ml-5 md:ml-0">
               <Link to="/">
-                <h1 className="text-2xl text-orange-500">Xiong</h1>
+              <img
+              className="h-32 w-32 md:h-48 md:w-48 object-cover"
+              src={xiongLogo}
+              alt="hmong symbol"
+            />
               </Link>
             </div>
           </div>
