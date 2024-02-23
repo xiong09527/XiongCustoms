@@ -8,8 +8,7 @@ import About from "./pages/About";
 import BlogPage from "./pages/BlogPage";
 import BlogDetails from "./pages/Blog/BlogDetails";
 
-function App() {
-  const [count, setCount] = useState(0);
+
 
   const cache = new InMemoryCache({
     typePolicies: {
@@ -31,14 +30,15 @@ function App() {
   });
 
   const client = new ApolloClient({
-    //uri: "http://localhost:4000",
+    uri: "http://localhost:4000",
     //uri: "http://localhost:3000",
-    uri: "https://longbackend.onrender.com",
+    //uri: "https://longbackend.onrender.com",
 
     cache,
   });
 
-  
+  function App() {
+    
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -49,6 +49,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/blogs" element={<BlogPage />} />
             <Route path="/blogs/:id" element={<BlogDetails />} />
+            
           </Routes>
         </div>
       </Router>
