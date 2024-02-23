@@ -15,7 +15,7 @@ const stripes = stripe(
 // Generate JWT
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
-    expiresIn: "15m",
+    expiresIn: "30d",
   });
 };
 
@@ -285,6 +285,7 @@ export const resolvers = {
       return {
         status: true,
         message: "Successfully sent the reset password link",
+        token: resetToken,
       };
     },
 

@@ -31,8 +31,10 @@ function App() {
   });
 
   const client = new ApolloClient({
-    uri: "http://localhost:4000",
+    //uri: "http://localhost:4000",
     //uri: "http://localhost:3000",
+    uri: "https://longbackend.onrender.com",
+
     cache,
   });
 

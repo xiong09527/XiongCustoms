@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Backdrop from "../Backdrop";
-import xiongLogo from '../../assets/Images/xiongLogo.png';
+import xiongLogo from '../../assets/Images/XiongLogo.png';
 
 // Navigation items and urls for routing
 const navItem = [
