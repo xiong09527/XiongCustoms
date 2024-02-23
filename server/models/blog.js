@@ -1,6 +1,8 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-const BlogSchema = new mongoose.Schema(
+const { Schema, model } = mongoose;
+
+const blogSchema = new Schema(
   {
     title: {
       type: String,
@@ -8,15 +10,19 @@ const BlogSchema = new mongoose.Schema(
     thumbnail: {
       type: String,
     },
-    description: "",
+    description: {
+      type: String,
+    },
     userId: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: "User",
     },
   },
   {
-    timestamps: true, 
+    timestamps: true, // This will add createdAt and updatedAt fields
   }
 );
 
-module.exports = mongoose.model("Blog", BlogSchema);
+const Blog = model("Blog", blogSchema);
+
+export default Blog;

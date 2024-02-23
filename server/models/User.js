@@ -1,12 +1,11 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
+import jwt from "jsonwebtoken";
 
-const UserSchema = new mongoose.Schema({
-  avatar: {
-    type: String,
-  },
-  name: {
-    type: String,
-  },
+const { Schema, model } = mongoose;
+
+const userSchema = new Schema({
+  avatar: String,
+  name: String,
   email: {
     type: String,
     unique: true,
@@ -15,12 +14,21 @@ const UserSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
-  password: {
-    type: String,
-  },
-  token: {
-    type: String,
-  },
+  password: String,
+  token: String,
+  resetToken: String,
+  resetTokenExpires: Date,
 });
 
-module.exports = mongoose.model("User", UserSchema);
+userSchema.methods.generateResetToken = function () {
+  const resetToken = jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
+    expiresIn: "1h", // Token expires in 1 hour
+  });
+  this.resetToken = resetToken;
+  this.resetTokenExpires = Date.now() + 3600000; // 1 hour in milliseconds
+  return resetToken;
+};
+
+const User = model("User", userSchema);
+
+export default User;
