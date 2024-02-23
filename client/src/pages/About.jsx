@@ -1,5 +1,5 @@
 import React from "react";
-import profileCover from '../assets/Images/avatar.png';
+
 import hmongCloth from '../assets/Images/hmongCloth.jpg';
 import LongXiong from '../assets/Images/Long.jpg';
 

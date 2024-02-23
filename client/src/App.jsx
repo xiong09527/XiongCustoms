@@ -7,6 +7,9 @@ import HomePage from "./pages/HomePage";
 import About from "./pages/About";
 import BlogPage from "./pages/BlogPage";
 import BlogDetails from "./pages/Blog/BlogDetails";
+import Login from "./pages/Auth/Login";
+import Register from "./pages/Auth/Register";
+
 
 
 
@@ -49,6 +52,9 @@ import BlogDetails from "./pages/Blog/BlogDetails";
             <Route path="/about" element={<About />} />
             <Route path="/blogs" element={<BlogPage />} />
             <Route path="/blogs/:id" element={<BlogDetails />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/register" element={<Register />} />
             
           </Routes>
         </div>
