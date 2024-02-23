@@ -36,7 +36,7 @@ const Hero = () => {
           </p>
           <br></br>
           <p>
-            As western civilization continues to influence our lives, there is a
+            As Western Civilization continues to influence our lives, there is a
             need to safeguard these traditions from being lost to time. By
             delving into the heritage of the Xiong Clan, one of the 18 clans of
             the Hmong people, we not only honor the legacy of our ancestors but
