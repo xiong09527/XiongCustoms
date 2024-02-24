@@ -17,8 +17,8 @@ const Footer = () => {
 
           <div className="max-w-[250px]">
             <h1 className="text-2xl font-bold">Contact</h1>
-            <p className=" text-sm">xiongnaolong@gmail.com</p>
-            <p>763-101-1010</p>
+            <p className=" text-sm">xiongkamen@gmail.com</p>
+            <p>763-000-000</p>
           </div>
           <div className="max-w-[250px] m-5">
             <h1 className="text-2xl font-bold">Location</h1>

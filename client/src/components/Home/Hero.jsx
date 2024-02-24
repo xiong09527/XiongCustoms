@@ -58,7 +58,7 @@ const Hero = () => {
             <div className="  ml-2">
               <h1 className="">Nao Long Xiong</h1>
               <p className=" text-xs text-slate-600">
-                Former Xiong Clan Leader
+                Patriarch
               </p>
             </div>
           </div>

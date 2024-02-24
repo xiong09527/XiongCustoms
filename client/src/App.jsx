@@ -9,6 +9,8 @@ import BlogPage from "./pages/BlogPage";
 import BlogDetails from "./pages/Blog/BlogDetails";
 import Login from "./pages/Auth/Login";
 import Register from "./pages/Auth/Register";
+import ThanksModal from "./pages/Contact/ThanksModal";
+import Footer from "./components/Navigation/Footer/Footer";
 
 
 
@@ -54,10 +56,10 @@ import Register from "./pages/Auth/Register";
             <Route path="/blogs/:id" element={<BlogDetails />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/register" element={<Register />} />
-            
+            <Route path="/thanks" element={<ThanksModal />} />         
           </Routes>
         </div>
+        <Footer />
       </Router>
     </ApolloProvider>
   );

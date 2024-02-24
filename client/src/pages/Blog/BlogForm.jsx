@@ -6,7 +6,7 @@ import { CREATE_BLOG } from "../../mutations/blogMutation";
 
 const PostBlogForm = () => {
   const [loading, setLoading] = useState(false);
-  const [bannerPreview, setbannerPreview] = useState("/assets/Images/banner.jpg");
+  const [bannerPreview, setbannerPreview] = useState("/banner.jpg");
   const [imageSrc, setImageSrc] = useState();
   const [uploadData, setUploadData] = useState();
   const navigate = useNavigate();

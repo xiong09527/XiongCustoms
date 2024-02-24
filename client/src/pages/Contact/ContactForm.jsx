@@ -80,7 +80,7 @@ const ContactForm = () => {
         <div className="address col-span-5 md:ml-5 mb-10 lg:mb-0 lg:mt-10s md:mt-0  ">
           <div className="mb-5">
             <h1 className="text-2xl font-semibold text-slate-900 ">
-              Get in Touch
+              Connect with me!
             </h1>
             <p className="text-primary">
               Feel free to reach out if you have any questions!
@@ -90,14 +90,14 @@ const ContactForm = () => {
             <MdNearMe className="  lg:text-4xl text-2xl  text-green-500 mr-2" />
             <div className="flex flex-col  items-centers">
               <h1 className="text-xl font-semibold text-secondary ">Name</h1>
-              <p className="text font-semibold text-primary">Xiong Customs</p>
+              <p className="text font-semibold text-primary">Nao Long Xiong</p>
             </div>
           </div>
           <div className="mb-2 flex flex-row items-center">
             <MdLocationOn className="lg:text-4xl text-2xl  text-red-500 mr-2" />
             <div className="flex flex-col  items-centers">
               <h1 className="text-xl font-semibold text-secondary ">Address</h1>
-              <p className="text font-semibold text-primary">United State</p>
+              <p className="text font-semibold text-primary">Brookyln Park, MN</p>
             </div>
           </div>
           <div className="mb-2 flex items-center ">
