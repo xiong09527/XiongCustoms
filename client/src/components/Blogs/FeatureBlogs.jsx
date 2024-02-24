@@ -18,7 +18,7 @@ const FeatureBlogs = () => {
     <div className="px-[10px] md:px-[20px] lg:px-[10%] pb-10">
       <div className=" flex justify-between  items-center text-slate-700 hover:text-slate-900 font-semibold">
         <div className=" text-lg lg:text-xl uppercase font-bold text-primary my-8">
-          <img src="../../assets/Images/Line 1.png" className=" inline-block  h-1" /> Blogs
+          <img src="/Line 1.png" className=" inline-block  h-1" /> Feature Blogs <img src="/Line 1.png" className=" inline-block  h-1" />
         </div>
 
         <div>
