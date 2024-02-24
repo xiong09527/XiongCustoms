@@ -56,7 +56,7 @@ import Footer from "./components/Navigation/Footer/Footer";
             <Route path="/blogs/:id" element={<BlogDetails />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/thanks" element={<ThanksModal />} />         
+            <Route path="/thanks" element={<ThanksModal />} />    
           </Routes>
         </div>
         <Footer />
