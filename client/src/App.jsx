@@ -11,8 +11,11 @@ import Login from "./pages/Auth/Login";
 import Register from "./pages/Auth/Register";
 import ThanksModal from "./pages/Contact/ThanksModal";
 import Footer from "./components/Navigation/Footer/Footer";
-
-
+import AdminBlogs from "./pages/Admin/AdminBlogs";
+import AdminMessage from "./pages/Admin/AdminMessage";
+import CreateBlog from "./pages/Blog/CreateBlog";
+import MessageDetails from "./pages/Admin/MessageDetails";
+import Users from "./pages/Admin/Users";
 
 
   const cache = new InMemoryCache({
@@ -57,6 +60,13 @@ import Footer from "./components/Navigation/Footer/Footer";
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/thanks" element={<ThanksModal />} />    
+
+            <Route path="/admin/users" element={<Users />} />
+            <Route path="/admin" element={<Users />} />
+            <Route path="/admin/blogs" element={<AdminBlogs />} />
+            <Route path="/admin/messages" element={<AdminMessage />} />
+            <Route path="/admin/message/:id" element={<MessageDetails />} />
+            <Route path="/admin/create-blog" element={<CreateBlog />} />
           </Routes>
         </div>
         <Footer />

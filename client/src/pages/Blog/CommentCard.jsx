@@ -42,7 +42,7 @@ function CommentCard({
       <div className=" flex items-center ">
         <img
           className="h-10 rounded-full "
-          src={avatar || "/assets/Images/avatar.png"}
+          src={avatar || "/avatar.png"}
           alt=""
         />
         <p className=" ml-3 text-lg font-semibold">{name}</p>
