@@ -169,7 +169,7 @@ const Register = () => {
                         ""
                       )}
                       <button className="mt-5 bg-btn1 bg-orange-500  w-fit text-white px-5 py-2 rounded-lg  font-semibold">
-                        Upload Files
+                        Upload Avatar
                       </button>
                     </div>
                   )}

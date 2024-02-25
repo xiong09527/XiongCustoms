@@ -54,6 +54,16 @@ const Admin = ({ children }) => {
           >
             Users
           </li>
+          <li
+            onClick={() => navClickHandler("/admin/payments")}
+            className={` 
+            ${
+              navIndex === "/admin/payments" ? " bg-orange-500  text-white" : ""
+            } 
+            px-2 py-1 border border-r text-center hover:bg-orange-500 hover:text-white cursor-pointer`}
+          >
+            Payments
+          </li>
         </ul>
       </div>
       {children}
