@@ -9,7 +9,7 @@ import nodemailer from "nodemailer";
 
 import stripe from "stripe";
 const stripes = stripe(
-  "sk_test_51ODy2jAga1Ski7sBmUcKSSWYpUDaycCYMEuifMmWv08pwsZevf9wBHJjwZPZTRuaS31UZjEk6wM8hy9TPAwVNJRR00sIomI6qe"
+  "pk_test_51OmmzbA0o39JMyyKbuIuheiMwrTSf4iR3GG1g0QZSGaHFxHuaD5cCmUjWz9lOnkDJaXmY50RouTmYjtwce1oPMMU00fGkoiy27"
 );
 
 // Generate JWT
