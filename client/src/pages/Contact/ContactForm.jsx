@@ -105,7 +105,7 @@ const ContactForm = () => {
             <div className="flex flex-col  items-centers">
               <h1 className="text-xl font-semibold text-secondary ">Email</h1>
               <p className="text font-semibold text-primary">
-                xiongkamen@gmail.com
+                xiongnaolong@gmail.com
               </p>
             </div>
           </div>

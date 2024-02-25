@@ -54,7 +54,7 @@ const Donate = () => {
   if (error) return <h1 className=" text-center">{error.message}</h1>;
 
   return (
-    <div className="px-[10px] md:px-[20px] lg:px-[10%]">
+    <div className="px-[10px] md:px-[20px] lg:px-[10%] pt-20">
       <p className="lg:mx-[20%] text-center ">
         Every contribution, no matter the size, makes a meaningful impact. Your donation helps us continue our mission of perserving our culture. 
         Please Enter your donation amount below. Thank you for your support!
