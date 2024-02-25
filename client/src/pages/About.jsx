@@ -33,17 +33,40 @@ const About = () => {
             <p className=" text-xl">Hmong Xiong Elder</p>
 
             <p className=" text-tbl mt-5">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-          tempor incididunt ut labore et dolore magna aliqua. Nisl nunc mi ipsum 
-          faucibus vitae aliquet. Arcu bibendum at varius vel pharetra vel turpis. 
-          Ipsum nunc aliquet bibendum enim facilisis gravida neque convallis a. 
-          Ac orci phasellus egestas tellus. Nunc mi ipsum faucibus vitae aliquet. 
-          Ultrices eros in cursus turpis massa tincidunt dui. Ultrices eros in cursus 
-          turpis massa. Eget lorem dolor sed viverra ipsum nunc. Ullamcorper morbi 
-          tincidunt ornare massa eget egestas purus. Risus viverra adipiscing at in. 
-          Purus sit amet luctus venenatis lectus magna fringilla urna porttitor. 
-          Adipiscing elit ut aliquam purus sit amet luctus. Nunc eget lorem dolor 
-          sed viverra ipsum nunc aliquet.
+            <p>
+            Nao Long Xiong's story is a compelling narrative of resilience, cultural preservation, and the quest for a better life amidst the backdrop of political 
+            turmoil and war. Born on April 12, 1954, in Sam Thong, Xiang Khouang Province, Laos, to Nhia Koua Xiong and Blia Vue, Nao was the eldest of seven children.
+             His formative years were significantly influenced by the Vietnam War, an event that not only impacted his homeland but also shaped his personal journey in 
+             profound ways.
+          </p>
+          <br></br>
+          <p>
+          As the Vietnam War concluded in 1975, Nao, along with General Vang Pao and many Hmong allies, faced the harsh reality of persecution. Their collaboration 
+          with the United States during the conflict made them targets of the Pathet Lao, the communist faction that took control of Laos. This dire situation forced 
+          many Hmong into hiding within the dense jungles and rugged mountains of Laos to evade capture and persecution.
+          </p>
+          <br></br>
+          <p>
+          In a bold move for survival, on February 20, 1979, Nao embarked on a perilous journey across the Mekong River, arriving at a Thai refugee camp on February 28. 
+          This transition marked a pivotal moment in his life, offering both a sanctuary and a space of uncertainty. It was within the confines of the refugee camp that
+           Nao delved deep into the Hmong culture. He dedicated himself to learning the intricate customs of funeral rites, wedding ceremonies, hu plig 
+           "spiritual callings", and the traditional expressions of gratitude known as “Ua Tsuag.” 
+           This period was not just about survival but about reclaiming and understanding his cultural heritage amidst displacement.
+          </p>
+          <br></br>
+          <p>
+          Nao's journey took a transformative turn on September 3, 1986, when he migrated to the United States. This move was fraught with uncertainty, as it involved 
+          stepping into an entirely new world without the familiarity of language, culture, or community. However, this leap also represented a beacon of hope—a chance 
+          for a new beginning for Nao and his family. It was an opportunity to build a life in a land of possibilities while preserving the rich tapestry of Hmong culture 
+          and traditions.
+          </p>
+          <br></br>
+          <p>
+          Nao Long Xiong's story is a testament to the strength and resilience of the human spirit. It highlights the challenges of navigating displacement and the 
+          mportance of cultural preservation in the face of adversity. His journey from the mountains of Laos to the refugee camps of Thailand, and ultimately to 
+          the United States, embodies the experiences of many Hmong individuals and families. It is a narrative of survival, cultural identity, and the unyielding 
+          hope for a better future.
+          </p>
             </p>
           </div>
         </div>
