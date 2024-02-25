@@ -16,6 +16,7 @@ import AdminMessage from "./pages/Admin/AdminMessage";
 import CreateBlog from "./pages/Blog/CreateBlog";
 import MessageDetails from "./pages/Admin/MessageDetails";
 import Users from "./pages/Admin/Users";
+import Donate from "./pages/Donate";
 
 
   const cache = new InMemoryCache({
@@ -59,7 +60,8 @@ import Users from "./pages/Admin/Users";
             <Route path="/blogs/:id" element={<BlogDetails />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/thanks" element={<ThanksModal />} />    
+            <Route path="/thanks" element={<ThanksModal />} />   
+            <Route path="/donate" element={<Donate />} /> 
 
             <Route path="/admin/users" element={<Users />} />
             <Route path="/admin" element={<Users />} />
