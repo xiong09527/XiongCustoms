@@ -11,6 +11,25 @@ const BlogPreview = ({ formData, bannerImage }) => {
     console.error("userData is invalid or missing required properties");
     return;
   }
+
+  // Function to add paragraph breaks
+  const renderDescription = (description) => {
+    // Split by double newline to identify paragraphs
+    const paragraphs = description.split('\n\n');
+    return paragraphs.map((paragraph, idx) => (
+      // Wrap individual paragraphs in <p> tag
+      <p key={idx} style={{ textIndent: '2em', textAlign: 'justify', marginBottom: '1em' }}>
+        {paragraph.split('\n').map((line, lineIdx) => (
+          <React.Fragment key={lineIdx}>
+            {line}
+            <br />
+          </React.Fragment>
+        ))}
+      </p>
+    ));
+  };
+  
+  
   return (
     <div className="bg-bgc min-h-screen   w-full lg:mx-5 mt-5 lg:mt-0  p-4 border rounded shadow-sm">
       <h2 className="text-2xl font-semibold mb-4">Preview Blog </h2>
@@ -40,11 +59,12 @@ const BlogPreview = ({ formData, bannerImage }) => {
           <img className="  h-52 my-5  " src={bannerImage} alt="" />
         </div>
 
-        <h1 className=" text-2xl lg:text-5xl font-semibold text-secondary mb-5 ">
-          {formData ? formData.title : "Title not found"}
-        </h1>
-        <p>{formData.description}</p>
-      </div>
+        <h1 className="text-2xl lg:text-5xl font-semibold text-secondary mb-5">
+        {formData.title || "Title not found"}
+      </h1>
+      {/* Render description with paragraph breaks */}
+      {formData.description ? renderDescription(formData.description) : <p>Description not found</p>}
+    </div>
 
       {/* Related Blog */}
     </div>

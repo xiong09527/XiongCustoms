@@ -124,7 +124,7 @@ const PostBlogForm = () => {
       // Handle the error, display a message to the user, or perform other actions
     }
   };
-
+  
   return (
     <div className="grid grid-cols-1 mx-5 lg:grid-cols-2 pt-3">
       <div className="p-4 shadow-lg  border rounded">
@@ -204,7 +204,7 @@ const PostBlogForm = () => {
           </div>
         </form>
       </div>
-
+      
       <BlogPreview
         formData={formData}
         bannerImage={bannerPreview}

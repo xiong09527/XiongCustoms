@@ -68,9 +68,9 @@ import PaymentDetails from "./pages/Admin/PaymentDetails";
             <Route path="/admin/users" element={<Users />} />
             <Route path="/admin" element={<Users />} />
             <Route path="/admin/blogs" element={<AdminBlogs />} />
-            <Route path="/admin/messages" element={<AdminMessage />} />
-            <Route path="/admin/message/:id" element={<MessageDetails />} />
             <Route path="/admin/create-blog" element={<CreateBlog />} />
+            <Route path="/admin/messages" element={<AdminMessage />} />
+            <Route path="/admin/message/:id" element={<MessageDetails />} />         
             <Route path="/admin/payments" element={<Payments />} />
             <Route path="/admin/payments/:id" element={<PaymentDetails />} />
           </Routes>

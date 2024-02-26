@@ -5,7 +5,7 @@
 </p>
 
 ## Description
-
+Xiong Customs is a blog platform dedicated to preserving and sharing the rich heritage of our culture. Through engaging articles and stories, we provide insightful information on traditional ceremonies, rituals, and practices, connecting readers with the depth of our ancestral roots in the modern world.
 
 ## Screen Shots
 
