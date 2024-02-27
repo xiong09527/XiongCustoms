@@ -5,7 +5,9 @@ import { DELETE_BLOG } from "../../../mutations/blogMutation";
 import { GET_BLOGS } from "../../../queries/blogQueries";
 import { useMutation, useQuery } from "@apollo/client";
 
+// Component to display the blog card in the admin dashboard
 const AdminBlogCard = ({ id, title, thumbnail, description, date, user }) => {
+  // State to store userData
   const [userData, setUserData] = useState("");
 
   useEffect(() => {
@@ -18,6 +20,7 @@ const AdminBlogCard = ({ id, title, thumbnail, description, date, user }) => {
     }
   }, []);
 
+  // Mutation to delete a blog
   const [deleteBlog] = useMutation(DELETE_BLOG, {
     refetchQueries: [{ query: GET_BLOGS }],
     onError: (error) => {
@@ -26,11 +29,15 @@ const AdminBlogCard = ({ id, title, thumbnail, description, date, user }) => {
     },
   });
 
+  // Query to get all blogs
   const { loading, error, data } = useQuery(GET_BLOGS);
 
+  // Function to handle the delete blog button click
   const deleteBlogHandler = (id) => {
     deleteBlog({ variables: { blogId: id, adminId: userData.id } });
   };
+
+  // If the data is loading, display a loading message
   if (loading) {
     return (
       <h1
@@ -53,6 +60,8 @@ const AdminBlogCard = ({ id, title, thumbnail, description, date, user }) => {
             <MdDelete className="text-white hover:text-red-400" />
           </button>
         </div>
+
+        {/* image */}
         <img
           className="h-full w-full hover:scale-105 duration-100 cursor-pointer"
           src={`${thumbnail}`}
@@ -61,12 +70,16 @@ const AdminBlogCard = ({ id, title, thumbnail, description, date, user }) => {
       </div>
       <div className="p-2 flex flex-col  justify-betweens justify-between ">
         <p className="text-white bg-btn1 w-fit px-3 rounded-full my-1"></p>
+
+        {/* Blog title details */}
         <Link
           to={`/blogs/${id}`}
           className="text-lg h-[60px]  font-bold text-tertiary line-clamp-2 hover:underline "
         >
           {title}
         </Link>
+
+        {/* Blog description */}
         <p className="text-primary line-clamp-2">{description}</p>
         <div className="flex mt-5">
           <img

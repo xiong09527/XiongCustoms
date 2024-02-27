@@ -2,18 +2,22 @@ import React from "react";
 import xiongSymbol from "../../assets/Images/xiongSymbol.jpg";
 import xiongXao from "../../assets/Images/xiongXao.jpg";
 
+// Hero component to display main banner
 const Hero = () => {
   return (
+    // Container for the hero section
     <div className="lg:h-[95vh] md:h-[80vh]   px-[10px]md:px-[20px]lg:px-[10%]    flex flex-col md:flex-row bg-white text-slate-800 pt-10s  md:pt-32s ">
       <div
         className=" relative order-2 pb-10 md:order-1 md:w-[45%] bg-white flex items-center"
         // style={{ backgroundImage: 'url("/xiongSymbol.png")' }}
       >
+        {/* Image hidden on medium screens */}
         <img
           className="z-10 opacity-25 md:hidden absolute h-32smb-10md:mb-0 h-full w-full object-cover "
           src="/HmongPattern.jpg"
           alt="Hmong Pattern"
         />
+        {/* Content */}
         <div className="z-20 flex flex-col items-start justify-center pl-[10px] md:pl-[20px] lg:pl-[10%] ">
           <h1 className=" texst text-2xl md:text-4xl font-semibold">
             Dive into the heritage of the Xiong Clan!
@@ -48,7 +52,7 @@ const Hero = () => {
             celebrate the richness of our culture heritage and strive to
             preserve it for generations to come!!
           </p>
-
+          {/* Author details */}
           <div className=" flex flex-row items-center justify-start w-full mt-10">
             <img
               className=" h-14 sh-full  object-cover "
@@ -64,6 +68,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
+      {/* Right side image container */}
       <div className=" hidden lg:flexs order-1 md:order-2 md:block md:w-[55%] ">
         <img
           className=" h-32smb-10md:mb-0 h-full w-full object-cover "

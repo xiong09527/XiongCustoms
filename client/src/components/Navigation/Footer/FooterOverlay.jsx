@@ -1,9 +1,9 @@
 
 import { Link } from "react-router-dom";
-
 import React from "react";
 import { BsArrowRight } from "react-icons/bs";
 
+// FooterOverlay component
 const FooterOverlay = () => {
   return (
     <div className="flex items-center justify-center">
@@ -14,6 +14,7 @@ const FooterOverlay = () => {
         <p>
         Donate And Help Make a Meaningful Impact!
         </p>
+        {/* Path for the donate page */}
         <Link
           to="/donate"
           className="flex flex-row my-4  md:mt-5 justify-center items-center text-xl bg-orange-500 hover:bg-orange-600 rounded-lg hover:bg-primaryWhite text-white px-3 py-2  "

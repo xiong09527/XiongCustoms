@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Admin = ({ children }) => {
-    // State to keep track  of active navigation
+  // State to keep track  of active navigation
   const [navIndex, setIndex] = useState("/admin/users;");
   const navigate = useNavigate();
 
@@ -12,12 +12,12 @@ const Admin = ({ children }) => {
     navigate(id);
   };
 
-
   return (
-  <div>
+    <div>
       {/* Navigation menu */}
       <div className=" flex items-center justify-center py-3">
         <ul className=" grid grid-cols-4 md:grid-cols-5 rounded border  ">
+           {/* Navigation items for different admin sections */}
           <li
             onClick={() => navClickHandler("/admin/create-blog")}
             className={`${
@@ -66,6 +66,7 @@ const Admin = ({ children }) => {
           </li>
         </ul>
       </div>
+      {/* This area will render the child components passed to the Admin component */}
       {children}
     </div>
   );

@@ -4,9 +4,12 @@ import Admin from "./Admin";
 import { useQuery } from "@apollo/client";
 import { GET_PAYMENTS } from "../../queries/payment";
 
+// Payments component
 const Payments = () => {
+  // State to store userData fetch from local storage
   const [userData, setUserData] = useState("");
 
+  // Get userData from localStorage
   useEffect(() => {
     const userDataFromLocalStorage = localStorage.getItem("userData");
     if (userDataFromLocalStorage) {
@@ -14,22 +17,26 @@ const Payments = () => {
     }
   }, []);
 
+  // Query to get all payments
   const { loading, error, data } = useQuery(GET_PAYMENTS, {
     variables: { adminId: userData.id },
   });
 
+
   return (
     <Admin className="">
       <>
+        {/* Condition rendering based if payments are found*/}
         {!data?.payments && <h1 className=" text-center">No Payments found</h1>}{" "}
         {
           <div className=" lg:mx-[20%] border">
+            {/* Header displayed when payments are found */}
             {data?.payments && (
               <h1 className=" text-center my-3 text-lg font-semibold">
                 All Payments
               </h1>
             )}
-
+            {/* render each payment */}
             {data?.payments
               ?.slice()
               ?.reverse()

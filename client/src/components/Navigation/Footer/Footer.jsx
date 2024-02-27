@@ -4,6 +4,7 @@ import FooterOverlay from "./FooterOverlay";
 const Footer = () => {
   return (
     <>
+    {/* Footer component */}
       <FooterOverlay />
       <div className="bg-black text-white pt-[100px] px-10 md:px-[10%]">
         <section className="flex flex-row flex-wrap justify-around items-start">
@@ -28,7 +29,7 @@ const Footer = () => {
             <p>United States</p>
           </div>
         </section>
-
+      {/* Container for copyright */}
         <section className="text-center py-3">
           <hr className="my-2" />
           <p>

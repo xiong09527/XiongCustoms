@@ -6,10 +6,14 @@ import Spinner from "../../components/Spinner";
 import { BiChevronLeft } from "react-icons/bi";
 import { GET_PAYMENT } from "../../queries/payment";
 
+// PaymentDetails component
 const PaymentDetails = () => {
+  // Retrieve the id from the URL
   const { id } = useParams();
+  // State to store userData fetch from local storage
   const [userData, setUserData] = useState(null);
 
+  // Effect hook to get userData from localStorage
   useEffect(() => {
     const userDataFromLocalStorage = localStorage.getItem("userData");
     if (userDataFromLocalStorage) {
@@ -17,24 +21,29 @@ const PaymentDetails = () => {
     }
   }, []); // Update useEffect dependency array
 
+  // Query to get a payment
   const { loading, error, data } = useQuery(GET_PAYMENT, {
      // Use userData?.id to avoid accessing id on null userData
     variables: { adminId: userData?.id, paymentId: id },
   });
 
+  // Render the component wrapped with <Admin> Layout
   return (
     <Admin>
       <div className=" overflow-hidden p-5 lg:mx-[20%] border">
+        {/* Link to go back to payments */}
         <Link to="/admin/payments" className="">
           <div className=" bg-gray-50 px-1 py-1 inline-block  border rounded">
             <BiChevronLeft className="text-2xl  " />
           </div>
         </Link>
         <div className=" flex items-center justify-center">
+          {/* Display spinner while loading and error message on error */}
           {loading && <Spinner />}
           {error && <p>Error: {error.payment}</p>}
         </div>
 
+        {/* Display the payment details */}
         {data && (
           <>
             <div

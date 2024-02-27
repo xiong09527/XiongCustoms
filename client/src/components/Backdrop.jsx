@@ -1,5 +1,6 @@
 import React from "react";
 
+// Backdrop component
 const Backdrop = () => {
   return (
     <div
