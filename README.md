@@ -8,7 +8,10 @@
 Xiong Customs is a blog platform dedicated to preserving and sharing the rich heritage of our culture. Through engaging articles and stories, we provide insightful information on traditional ceremonies, rituals, and practices, connecting readers with the depth of our ancestral roots in the modern world.
 
 ## Screen Shots
-
+![alt text](client/src/assets/Images/Homepage.png)
+![alt text](client/src/assets/Images/Login.png)
+![alt text](client/src/assets/Images/Resgrister.png)
+![alt text](client/src/assets/Images/Blogs.png)
 
  Click on the link deploy application: 
 [Xiong Custom]( https://)
@@ -17,10 +20,9 @@ Xiong Customs is a blog platform dedicated to preserving and sharing the rich he
 1. [Installation](#installation)
 2. [Technologies](#technologies)
 3. [Usage](#usage)
-4. [Tests](#tests)
-5. [Contribution](#contribution)
-6. [License](#license)
-7. [Contact](#contact)
+4. [Contribution](#contribution)
+5. [License](#license)
+6. [Contact](#contact)
 
 ## Installation
 Make sure that you have Node.js install, if you do not have node.js, you can visit [Node.js website](https://nodejs.org/en).
@@ -28,7 +30,15 @@ Make sure that you have Node.js install, if you do not have node.js, you can vis
 You will also need to add dependencies, in your terminal type in:
 
 ```
+cd server
 npm install
+npm start
+```
+then open up a new ternimal window and type in:
+```
+cd client
+npm install
+npm start
 ```
 
 
@@ -54,12 +64,9 @@ npm install
 Make sure you have MongoDB Compass. If you do not have MongoDB you can you visit [MongoDB website](https://www.mongodb.com/try/download/community).
 
 
-## Tests
-
-
-
 ## Contribution
 
+Created for the Final project Challenge of the U of M full stack boot camp. Contact me with ideas and request for changes.
 
 
 ## License
