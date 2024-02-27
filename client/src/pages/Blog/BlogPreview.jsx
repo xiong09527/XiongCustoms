@@ -1,6 +1,8 @@
 import React from "react";
 
+// Blog preview component
 const BlogPreview = ({ formData, bannerImage }) => {
+  // Get user data from localStorage
   const userDataString = localStorage.getItem("userData");
   if (!userDataString) {
     console.error("userData is not available in localStorage");
@@ -29,7 +31,7 @@ const BlogPreview = ({ formData, bannerImage }) => {
     ));
   };
   
-  
+  // Render the component
   return (
     <div className="bg-bgc min-h-screen   w-full lg:mx-5 mt-5 lg:mt-0  p-4 border rounded shadow-sm">
       <h2 className="text-2xl font-semibold mb-4">Preview Blog </h2>
@@ -49,6 +51,7 @@ const BlogPreview = ({ formData, bannerImage }) => {
             {/* {formData ? formData.authorName : "/"} */}
           </h1>
           <p className="text-sm font-semibold text-primary ">
+            {/* Display the current date and time as blog post time */}
             {formData ? new Date().toLocaleString() : "/"}
           </p>
         </div>
@@ -56,6 +59,7 @@ const BlogPreview = ({ formData, bannerImage }) => {
 
       <div>
         <div className=" mb-5 flex items-center justify-center">
+          {/* Display the banner image */}
           <img className="  h-52 my-5  " src={bannerImage} alt="" />
         </div>
 
@@ -64,6 +68,7 @@ const BlogPreview = ({ formData, bannerImage }) => {
       </h1>
       {/* Render description with paragraph breaks */}
       <div className="description-container">
+         {/* Using <pre> to preserve formatting if not using renderDescription function */}
         <pre>{formData.description}</pre>
       </div>
     </div>

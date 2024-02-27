@@ -176,7 +176,7 @@ const NavBar = () => {
               ""
             )}
           </div>
-
+              
           <div>
             <div>{/* <AuthButton /> */}</div>
             {!userData ? (

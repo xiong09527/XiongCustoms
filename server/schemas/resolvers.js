@@ -7,6 +7,7 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import nodemailer from "nodemailer";
 
+// Stripe for payment
 import stripe from "stripe";
 const stripes = stripe(
   "pk_test_51OmmzbA0o39JMyyKbuIuheiMwrTSf4iR3GG1g0QZSGaHFxHuaD5cCmUjWz9lOnkDJaXmY50RouTmYjtwce1oPMMU00fGkoiy27"
@@ -44,14 +45,18 @@ const sendPasswordResetEmail = async (email, resetToken) => {
   }
 };
 
+// Resolvers for the schema
 export const resolvers = {
   Query: {
+    // Resolvers for the queries
     async blogs() {
       return await Blog.find();
     },
+    // Resolver for a single blog
     async blog(_, args) {
       return await Blog.findById(args.blogId);
     },
+    // Resolver for the users
     async users(_, args) {
       const { adminId } = args;
       const admin = await User.findById(adminId);
@@ -61,16 +66,18 @@ export const resolvers = {
       }
       return;
     },
+    // Resolver for a single user
     async user(_, args) {
       const { adminId, userId } = args;
       const admin = await User.findById(adminId);
       const isAdmin = admin.admin;
-
+      // Check if the user is an admin
       if (isAdmin) {
         return await User.findById(userId);
       }
       return;
     },
+    // Resolver for the comments
     async messages(_, args) {
       const { adminId } = args;
       const admin = await User.findById(adminId);
@@ -80,6 +87,7 @@ export const resolvers = {
       }
       return;
     },
+    // Resolver for a single message
     async message(_, args) {
       const { adminId, messageId } = args;
       const admin = await User.findById(adminId);
@@ -89,6 +97,7 @@ export const resolvers = {
       }
       return;
     },
+    // Resolver for the pauments only for admin
     async payments(_, args) {
       const { adminId } = args;
       const admin = await User.findById(adminId);
@@ -99,6 +108,7 @@ export const resolvers = {
       }
       return;
     },
+    // Resolver for a single payment
     async payment(_, args) {
       const { adminId, paymentId } = args;
       const admin = await User.findById(adminId);
@@ -111,36 +121,43 @@ export const resolvers = {
     },
   },
 
+    // Resolvers for user accociated with a blog
   Blog: {
     async user(parent) {
       return await User.findById(parent.userId);
     },
+    // Resolver for the comments accociated with a blog
     async comments(parent) {
       return await Comment.find({ blogId: parent.id });
     },
+    // Resolver for the format date of a blog
     async createdAt(parent) {
       return new Date(parent.createdAt).toLocaleString();
     },
   },
 
+   // Resolver for the format date of a payment
   Payment: {
     async createdAt(parent) {
       return new Date(parent.createdAt).toLocaleString();
     },
   },
 
+  // Resolvers for the  created at date of a message
   Message: {
     async createdAt(parent) {
       return new Date(parent.createdAt).toLocaleString();
     },
   },
 
+  // Resolvers for user accociated with a comment
   Comment: {
     async user(parent) {
       return await User.findById(parent.userId);
     },
   },
 
+  //Resolvers for creating a new blog only for admin
   Mutation: {
     async createBlog(_, args) {
       const { userId, thumbnail, title, description } = args;
@@ -163,6 +180,7 @@ export const resolvers = {
 
       return;
     },
+    // Resolver for deleting a blog only for admin
     async deleteBlog(_, args) {
       const { adminId, blogId } = args;
       const admin = await User.findById(adminId);
@@ -179,6 +197,7 @@ export const resolvers = {
 
       return;
     },
+    //Resolver for deleting a user only for admin
     async deleteUser(_, args) {
       const { userId, adminId } = args;
 
@@ -202,6 +221,7 @@ export const resolvers = {
 
       return;
     },
+    // Resolver for updating a user only for admin
     async updateUser(_, args) {
       const { userId, adminId } = args;
 
@@ -225,6 +245,7 @@ export const resolvers = {
 
       return;
     },
+    // Resolver for registering a new user
     async registerUser(_, args) {
       const { avatar, name, email, password } = args;
       // Hash password
@@ -249,6 +270,7 @@ export const resolvers = {
         token: generateToken(user._id),
       };
     },
+    // Resolver authenticating and logging in a user
     async loginUser(_, args) {
       const { email, password } = args;
 
@@ -269,6 +291,7 @@ export const resolvers = {
         };
       }
     },
+    // Resolver function to initiate the password reset process
     async forgetPassword(_, args) {
       const { email } = args;
       const user = await User.findOne({ email });
@@ -288,7 +311,7 @@ export const resolvers = {
         token: resetToken,
       };
     },
-
+    // Resolver function to reset the password
     async resetPassword(_, args) {
       const { password, resetToken } = args;
 
@@ -318,7 +341,7 @@ export const resolvers = {
         return new Error("Invalid token");
       }
     },
-
+    // Resolver for creating a new comment
     async createComment(_, args) {
       const { comment, blogId, userId } = args;
       const user = await User.findById(userId);
@@ -331,6 +354,7 @@ export const resolvers = {
       }
       return;
     },
+    // Resolver for deleting a comment
     async deleteComment(_, args) {
       const { commentId, userId } = args;
 
@@ -356,6 +380,7 @@ export const resolvers = {
       }
       return;
     },
+    // Resolver for sending a message
     async sendMessage(_, args) {
       const { name, email, subject, text, userId } = args;
       const user = await User.findById(userId);
@@ -370,6 +395,7 @@ export const resolvers = {
       }
       return;
     },
+    // Resolver for deleting a message
     async deleteMessage(_, args) {
       const { messageId, adminId } = args;
 
@@ -381,6 +407,7 @@ export const resolvers = {
       }
       return "Not admin";
     },
+    // Resolver for payment
     async payment(_, args) {
       const { tokenId, amount } = args;
       const payment = await stripes.charges.create({

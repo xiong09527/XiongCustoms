@@ -3,14 +3,18 @@ import { Link, useNavigate } from "react-router-dom";
 import { LOGIN_USER } from "../../mutations/userMutation";
 import { useMutation } from "@apollo/client";
 
+// Login component
 const Login = () => {
+  // Use the useNavigate hook to redirect the user
   const navigate = useNavigate();
 
+  // State to store form data
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
+  // Function to handle input change
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({
@@ -37,11 +41,14 @@ const Login = () => {
     },
   });
 
+  // Function to handle the form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    // Basic form validation
     const { email, password } = formData;
 
+    // Check if the email and password are provided
     if (!email || !password) {
       console.log(alert("required field"));
       return;
@@ -64,6 +71,7 @@ const Login = () => {
     }
   };
 
+  // Render the login form
   return (
     <>
       <section className="bg-gray-50 ">
@@ -75,6 +83,7 @@ const Login = () => {
               </h1>
               <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
                 <div>
+                  {/* Email input */}
                   <label
                     htmlFor="email"
                     className="block mb-2 text-sm font-medium text-gray-900 darksss:text-white"
@@ -93,6 +102,7 @@ const Login = () => {
                   />
                 </div>
 
+                {/* Password input */}
                 <div>
                   <label
                     htmlFor="password"
@@ -111,13 +121,14 @@ const Login = () => {
                     required
                   />
                 </div>
+                {/* Submit button */}
                 <button
                   type="submit"
                   className="w-full text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-oragnge-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center darksss:bg-oragnge-600 darksss:hover:bg-oragnge-700 darksss:focus:ring-oragnge-800"
                 >
                   Login
                 </button>
-
+                {/* Link to register page */}
                 <p className="text-sm font-light text-gray-500 darksss:text-gray-400">
                   Dont Have an account?{" "}
                   <Link

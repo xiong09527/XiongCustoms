@@ -3,9 +3,11 @@ import BlogCart from "../components/Blogs/BlogCart";
 import { useQuery } from "@apollo/client";
 import { GET_BLOGS } from "../queries/blogQueries";
 
+// BlogPage component
 const BlogPage = () => {
   const { loading, error, data } = useQuery(GET_BLOGS);
 
+  // If the data is loading, display a loading message if error, display an error message
   if (loading) return <h1 className=" text-center">Loading...</h1>;
   if (error) return <h1 className=" text-center">Error: {error.message}</h1>;
 
@@ -20,6 +22,7 @@ const BlogPage = () => {
       </div>
       <div className=" grid grid-cols-1 md:grid-cols-2 2 lg:grid-cols-3 gap-5">
         {data && data.blogs && data.blogs.length > 0 ? (
+          // Map through the blogs and display the blog entry
           data.blogs.map((b) => (
             <BlogCart
               key={b.id}

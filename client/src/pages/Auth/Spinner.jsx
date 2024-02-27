@@ -1,5 +1,6 @@
 import React from "react";
 
+// Spinner component
 function Spinner() {
   return (
     <div className=" absolute z-50  w-[100%] h-screen">

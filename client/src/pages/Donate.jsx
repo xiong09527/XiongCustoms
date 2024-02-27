@@ -4,17 +4,21 @@ import { useNavigate } from "react-router-dom";
 import { PAYMENT } from "../mutations/paymentMutation";
 import { useMutation } from "@apollo/client";
 
+// Donate component
 const Donate = () => {
   const [donateamount, setDonateAmont] = useState(null);
 
+  // Hook to navigate to a different page
   const navigate = useNavigate();
   const [token, setToken] = useState(null);
 
+  // Function to handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
     // Add logic to handle form submission
   };
 
+  // Mutation to process payment
   const [payment, { data, loading, error }] = useMutation(PAYMENT, {
     onCompleted: (data) => {
       navigate("/");
@@ -25,6 +29,7 @@ const Donate = () => {
     },
   });
 
+  // Function to handle payment mutation with stripe token and donation amount
   const handlePayment = async () => {
     try {
       const { data } = await payment({
@@ -37,18 +42,22 @@ const Donate = () => {
     }
   };
 
+  // Use effect hook to handle payment
   useEffect(() => {
     handlePayment();
   }, [token]);
 
+  // Function to handle stripe token
   const onToken = (token) => {
     setToken(token);
     console.log(token);
   };
 
+  // Stripe public key
   const KEY =
     "pk_test_51OmmzbA0o39JMyyKbuIuheiMwrTSf4iR3GG1g0QZSGaHFxHuaD5cCmUjWz9lOnkDJaXmY50RouTmYjtwce1oPMMU00fGkoiy27";
 
+    // If the data is loading, display a loading message if error, display an error message
   if (loading) return <h1 className=" text-center">Loading...</h1>;
 
   if (error) return <h1 className=" text-center">{error.message}</h1>;

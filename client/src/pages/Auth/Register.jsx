@@ -3,15 +3,19 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { REGISTER_USER } from "../../mutations/userMutation";
 
+// Register component
 const Register = () => {
+  // State to store form data
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
   });
 
+  // State to store loading status
   const [loading, setLoading] = useState(false);
 
+  // State to store avatar image preview
   const [avatar, setAvatar] = useState("");
   const [avatarPreview, setAvatarPreview] = useState("/avatar.png");
   const [imageSrc, setImageSrc] = useState();
@@ -19,6 +23,7 @@ const Register = () => {
 
   const navigate = useNavigate();
 
+  // Function to handle input change and update state
   const handleInputChange = (event) => {
     const { name, value, type, checked } = event.target;
     const newValue = type === "checkbox" ? checked : value;
@@ -29,6 +34,7 @@ const Register = () => {
     }));
   };
 
+  // Function to upload image to Cloudinary
   async function uloadImage(event) {
     event.preventDefault();
 
@@ -71,6 +77,7 @@ const Register = () => {
     setImageSrc("");
   }
 
+  // Function to handle file input change for image upload
   function handleUploadChange(changeEvent) {
     const reader = new FileReader();
 
@@ -81,6 +88,7 @@ const Register = () => {
     reader.readAsDataURL(changeEvent.target.files[0]);
   }
 
+  // Mutation to register a new user
   const [registerUser] = useMutation(REGISTER_USER, {
     onCompleted: (data) => {
       // Extract the user data from the response
@@ -99,6 +107,7 @@ const Register = () => {
     },
   });
 
+  // Function to handle the form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -110,6 +119,7 @@ const Register = () => {
     }
 
     try {
+      // Call the registerUser mutation
       await registerUser({
         variables: { name, email, password, avatar: avatarPreview }, // Pass variables object with name, email, password, and avatar
       });
@@ -127,8 +137,10 @@ const Register = () => {
     }
   };
 
+  
   return (
     <>
+    {/* Registration form */}
       <section className="bg-gray-50 pt-10">
         <div className="flex flex-col items-center justify-center px-6 py-8 md:min-h-screen lg:py-5">
           <div className="w-[95vw] md:w-[70vw] lg:w-[40vw] bg-white rounded-lg shadow md:mt-0 xl:p-0">
@@ -137,6 +149,7 @@ const Register = () => {
                 Create an account
               </h1>
 
+              {/* User avatar upload form */}
               <form
                 className="text-whites flex flex-col  justify-start sjustify-center items-centersSS mt-10 "
                 method="post"
@@ -175,7 +188,8 @@ const Register = () => {
                   )}
                 </div>
               </form>
-
+                
+              {/* Main Registration form */}
               <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
                 <div>
                   <label
@@ -196,6 +210,7 @@ const Register = () => {
                   />
                 </div>
 
+                {/* Email Field */}
                 <div>
                   <label
                     htmlFor="email"
@@ -215,6 +230,7 @@ const Register = () => {
                   />
                 </div>
 
+                {/* Password Field */}
                 <div>
                   <label
                     htmlFor="password"
@@ -234,12 +250,15 @@ const Register = () => {
                   />
                 </div>
 
+                {/* Submit button */}
                 <button
                   type="submit"
                   className="w-full text-white bg-orange-500 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                 >
                   Create an account
                 </button>
+                  
+                  {/* Link to login page */}  
                 <p className="text-sm font-light text-gray-500">
                   Already have an account?{" "}
                   <Link

@@ -6,9 +6,12 @@ import { useEffect, useState } from "react";
 import { TfiExchangeVertical } from "react-icons/tfi";
 import { GET_USERS } from "../../queries/userQueries";
 
+// Users component
 const Users = () => {
+  // State to store userData fetch from local storage
   const [userData, setUserData] = useState("");
 
+  // Get userData from localStorage
   useEffect(() => {
     // Get userData from localStorage
     const userDataFromLocalStorage = localStorage.getItem("userData");
@@ -19,10 +22,12 @@ const Users = () => {
     }
   }, []);
 
+  // Query to get all users
   const { loading, error, data } = useQuery(GET_USERS, {
     variables: { adminId: userData.id },
   });
 
+  // Mutation to delete a user
   const [deleteUser] = useMutation(DELETE_USER, {
     refetchQueries: [{ query: GET_USERS, variables: { adminId: userData.id } }],
     onError: (error) => {
@@ -30,10 +35,13 @@ const Users = () => {
       // Handle the error, display a message to the user, or perform other actions
     },
   });
+
+  // Function to handle the delete user button click
   const handleDeleteUser = (userId) => {
     deleteUser({ variables: { userId, adminId: userData.id } });
   };
 
+  // Mutation to update a user
   const [updateUser] = useMutation(UPDATE_USER, {
     refetchQueries: [{ query: GET_USERS, variables: { adminId: userData.id } }],
     onError: (error) => {
@@ -42,14 +50,18 @@ const Users = () => {
     },
   });
 
+  // Function to handle the update user button click
   const updateUserHandler = (userid) => {
     updateUser({ variables: { adminId: userData.id, userId: userid } });
   };
 
+  // Render the component wrapped with <Admin> Layout
   return (
     <Admin>
+      {/* Display spinner while loading and error message on error */}
       {loading && <p className="text-center">Loading...</p>}
       {error && <p className="text-center">Something went wrong...</p>}
+      {/* Render user table if data is available */}
       {!loading && !error && data.users && (
         <div className="px-[10px] md:px-[20px] lg:px-[10%]">
           <div className="flex-1 lg:pl-5">
@@ -57,17 +69,15 @@ const Users = () => {
               <table className="min-w-full bg-white border border-none ">
                 <thead className="border-b px-2">
                   <tr className="bg-gray-200">
-                    <th className="py-2 mx-4 border-none text-start pl-5">
-                      Name
-                    </th>
+                    {/* Table headers */}
+                    <th className="py-2 mx-4 border-none text-start pl-5">Name</th>
                     <th className="py-2 mx-4 border-none text-start">Email</th>
                     <th className="py-2 mx-4 border-none text-start">Role</th>
-                    <th className="py-2 mx-4 border-none text-start flex justify-end">
-                      Delete
-                    </th>
+                    <th className="py-2 mx-4 border-none text-start flex justify-end">Delete</th>
                   </tr>
                 </thead>
                 <tbody>
+                  {/* Map through the users and display them in the table */}
                   {data?.users?.map((d) => (
                     <tr key={d.id} className=" border-b">
                       <td className="py-2 mx-4 border-none whitespace-nowrap pl-5">
@@ -77,6 +87,7 @@ const Users = () => {
                         {d.email}
                       </td>
                       <td className="py-2 mx-4 border-none whitespace-nowrap">
+                        {/* Update user role */}
                         <button
                           onClick={() => updateUserHandler(d.id)}
                           className=" "

@@ -4,7 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { CREATE_BLOG } from "../../mutations/blogMutation";
 
+// Component to display the blog form
 const PostBlogForm = () => {
+  // State management for various form fields
   const [loading, setLoading] = useState(false);
   const [bannerPreview, setbannerPreview] = useState("/banner.jpg");
   const [imageSrc, setImageSrc] = useState();
@@ -19,6 +21,7 @@ const PostBlogForm = () => {
 
   const [userData, setUserData] = useState(null);
 
+  // Get userData from localStorage
   useEffect(() => {
     const userDataFromLocalStorage = localStorage.getItem("userData");
     if (userDataFromLocalStorage) {
@@ -26,6 +29,7 @@ const PostBlogForm = () => {
     }
   }, [navigate]);
 
+  // Handle image upload to Cloudinary
   async function uloadImage(event) {
     event.preventDefault();
 
@@ -65,17 +69,18 @@ const PostBlogForm = () => {
     setImageSrc("");
   }
 
+  // Function to handle file input change for image upload
   function handleUploadChange(changeEvent) {
     const reader = new FileReader();
 
     reader.onload = function (onLoadEvent) {
-      setImageSrc(onLoadEvent.target.result);
+      setImageSrc(onLoadEvent.target.result); // Set the image source for preview
       setUploadData(undefined);
     };
-    reader.readAsDataURL(changeEvent.target.files[0]);
+    reader.readAsDataURL(changeEvent.target.files[0]); //Reads the file as a data URL for preview
   }
 
-  // ///////////////////////////
+// Mutation to create a blog
   const [createBlog] = useMutation(CREATE_BLOG, {
     onCompleted: (data) => {
       // Extract the user data from the response
@@ -87,6 +92,7 @@ const PostBlogForm = () => {
     },
   });
 
+  // Handles the form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -112,6 +118,7 @@ const PostBlogForm = () => {
         }, // Pass variables object with name, email, password, and avatar
       });
 
+      // Reset form state
       setFormData({
         title: "",
         description: "",
@@ -127,6 +134,7 @@ const PostBlogForm = () => {
   
   return (
     <div className="grid grid-cols-1 mx-5 lg:grid-cols-2 pt-3">
+      {/* Form for uploading the blog banner */}
       <div className="p-4 shadow-lg  border rounded">
         <h2 className="text-2xl font-semibold mb-4">Post a Blog</h2>
 
@@ -168,7 +176,8 @@ const PostBlogForm = () => {
             </div>
           )}
         </form>
-
+        
+        {/* Form for blog title and description */}
         <form className="" onSubmit={(e) => e.preventDefault()}>
           <label className="block mb-2">
             Blog Title
@@ -206,6 +215,7 @@ const PostBlogForm = () => {
         </form>
       </div>
       
+      {/* Component to preview the blog post */}
       <BlogPreview
         formData={formData}
         bannerImage={bannerPreview}

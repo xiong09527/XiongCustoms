@@ -6,7 +6,7 @@ import CommentCard from "./CommentCard";
 import { MdRateReview } from "react-icons/md";
 import { CREATE_COMMENT } from "../../mutations/commentMutations";
 
-
+// BlogDetails component
 const BlogDetails = () => {
   const { id } = useParams();
   const [userData, setUserData] = useState([]);
@@ -21,12 +21,15 @@ const BlogDetails = () => {
     }
   }, []);
 
+  // State to store the comment
   const [comment, setComment] = useState("");
 
+  // Query to get a blog with ID
   const { loading, error, data } = useQuery(GET_BLOG, {
     variables: { blogId: id },
   });
 
+  // Mutation to create a comment
   const [createComment] = useMutation(CREATE_COMMENT, {
     refetchQueries: [{ query: GET_BLOG, variables: { blogId: id } }],
   });
@@ -54,13 +57,17 @@ const BlogDetails = () => {
     }
   };
 
+  // If the data is loading, display a loading message, if error, display an error message
   if (loading) return <h1 className=" text-center">Loading...</h1>;
   if (error) return <p className=" text-center">Something went wrong</p>;
 
+
   return (
     <div className="bg-bgc min-h-screen w-full  p-4 border rounded shadow-sm lg:px-[20%]">
+      {/* Blog Details */}
       <h2 className="text-2xl font-semibold mb-4">Details</h2>
 
+      {/* Blog Author */}
       <div className="flex mt-5 ">
         {data && data.blog && (
           <img
@@ -134,6 +141,7 @@ const BlogDetails = () => {
           </div>
         </form>
 
+        {/* List of comments */}
         <div className="flex mt-5 items-center justify-between">
           <h1 className="mb-5">Comments</h1>
         </div>

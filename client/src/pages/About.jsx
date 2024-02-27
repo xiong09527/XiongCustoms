@@ -1,9 +1,8 @@
 import React from "react";
-
 import hmongCloth from '../assets/Images/hmongCloth.jpg';
 import LongXiong from '../assets/Images/Long.jpg';
 
-
+// About component
 const About = () => {
   return (
     <div className="">
