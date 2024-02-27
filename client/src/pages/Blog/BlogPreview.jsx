@@ -63,7 +63,9 @@ const BlogPreview = ({ formData, bannerImage }) => {
         {formData.title || "Title not found"}
       </h1>
       {/* Render description with paragraph breaks */}
-      {formData.description ? renderDescription(formData.description) : <p>Description not found</p>}
+      <div className="description-container">
+        <pre>{formData.description}</pre>
+      </div>
     </div>
 
       {/* Related Blog */}

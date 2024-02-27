@@ -5,6 +5,8 @@ import { useMutation, useQuery } from "@apollo/client";
 import CommentCard from "./CommentCard";
 import { MdRateReview } from "react-icons/md";
 import { CREATE_COMMENT } from "../../mutations/commentMutations";
+
+
 const BlogDetails = () => {
   const { id } = useParams();
   const [userData, setUserData] = useState([]);
@@ -77,6 +79,7 @@ const BlogDetails = () => {
         </div>
       </div>
 
+          {/* Blog Thumbnail */}
       <div>
         <div className="mb-5 flex items-center justify-center">
           {data && data.blog && (
@@ -84,14 +87,20 @@ const BlogDetails = () => {
           )}
         </div>
 
+        {/* Blog Title and Description */}
         <h1 className="text-2xl lg:text-5xl font-semibold text-secondary mb-5">
           {data && data.blog ? data.blog.title : "Title not found"}
         </h1>
         <p>
-          {data && data.blog ? data.blog.description : "Description not found"}
+          {data && data.blog ? data.blog.description.split('\n').map((line, index) => (
+            <React.Fragment key={index}>
+              {line}{index < data.blog.description.split('\n').length - 1 && <br />}
+            </React.Fragment>
+          )) : "Description not found"}
         </p>
       </div>
 
+            {/* Comments */}
       <div className="flex flex-col bg-white shadow my-10 px-2 py-3  rounded mb-10">
         <form
           onSubmit={commentSubmitHandler}

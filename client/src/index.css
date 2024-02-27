@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.description-container {
+    max-height: 700px; 
+    overflow-y: auto; 
+    white-space: pre-wrap; 
+    padding: 1em;
+    margin-bottom: 1em;
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+  }
+  

@@ -192,6 +192,7 @@ const PostBlogForm = () => {
                 setFormData({ ...formData, description: e.target.value })
               }
               className="w-full min-h-40 outline-orange-400 border rounded py-2 px-3 mt-1"
+              style={{ resize: 'none', height: '800px' }} 
             />
           </label>
           <div className=" flex items-center justify-center">
