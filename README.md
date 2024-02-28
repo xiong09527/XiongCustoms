@@ -14,7 +14,8 @@ Xiong Customs is a blog platform dedicated to preserving and sharing the rich he
 ![alt text](client/src/assets/Images/Blogs.png)
 
  Click on the link deploy application: 
-[Xiong Custom]( https://)
+[Xiong Custom](https://xiongcustoms.vercel.app/)
+
 
 ## Table of Contents
 1. [Installation](#installation)
