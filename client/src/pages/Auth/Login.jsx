@@ -97,7 +97,7 @@ const Login = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     className="outline-orange-500 bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-oragnge-600 focus:border-oragnge-600 block w-full p-2.5 darksss:bg-gray-700 darksss:border-gray-600 darksss:placeholder-gray-400 darksss:text-white darksss:focus:ring-blue-500 darksss:focus:border-blue-500"
-                    placeholder="name@company.com"
+                    placeholder="Enter your email address"
                     required
                   />
                 </div>
