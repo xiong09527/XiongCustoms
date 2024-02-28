@@ -6,7 +6,7 @@ import xiongXao from "../../assets/Images/xiongXao.jpg";
 const Hero = () => {
   return (
     // Container for the hero section
-    <div className="lg:h-[95vh] md:h-[80vh]   px-[10px]md:px-[20px]lg:px-[10%]    flex flex-col md:flex-row bg-white text-slate-800 pt-10s  md:pt-32s ">
+    <div className="lg:h-[95vh] md:h-[100vh]   px-[10px]md:px-[20px]lg:px-[10%]    flex flex-col md:flex-row bg-white text-slate-800 pt-10s  md:pt-32s ">
       <div
         className=" relative order-2 pb-10 md:order-1 md:w-[45%] bg-white flex items-center"
         // style={{ backgroundImage: 'url("/xiongSymbol.png")' }}
