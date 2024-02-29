@@ -13,22 +13,20 @@ Xiong Customs is a blog platform dedicated to preserving and sharing the rich he
 ![alt text](client/src/assets/Images/Resgrister.png)
 ![alt text](client/src/assets/Images/Blogs.png)
 
- Click on the link deploy application: 
+ Click on the link to view the deploy application: 
 [Xiong Custom](https://xiongcustoms.vercel.app/)
 
 
 ## Table of Contents
 1. [Installation](#installation)
 2. [Technologies](#technologies)
-3. [Usage](#usage)
-4. [Contribution](#contribution)
-5. [License](#license)
-6. [Contact](#contact)
+3. [License](#license)
+4. [Contact](#contact)
 
 ## Installation
 Make sure that you have Node.js install, if you do not have node.js, you can visit [Node.js website](https://nodejs.org/en).
 
-You will also need to add dependencies, in your terminal type in:
+If you clone this project and want to run it in localhost. You will need to add the dependencies, in your terminal type in:
 
 ```
 cd server
@@ -59,15 +57,6 @@ npm start
 
 
 </p>
-
-## Usage
-
-Make sure you have MongoDB Compass. If you do not have MongoDB you can you visit [MongoDB website](https://www.mongodb.com/try/download/community).
-
-
-## Contribution
-
-Created for the Final project Challenge of the U of M full stack boot camp. Contact me with ideas and request for changes.
 
 
 ## License
