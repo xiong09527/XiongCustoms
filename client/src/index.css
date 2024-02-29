@@ -12,3 +12,12 @@
     border-radius: 4px; 
   }
   
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .site-content {
+    flex-grow: 1;
+  }

@@ -52,9 +52,10 @@ import PaymentDetails from "./pages/Admin/PaymentDetails";
     
   return (
     <ApolloProvider client={client}>
+      <div className="app-container">
       <Router>
         <NavBar />
-        <div className="">
+        <div className="site-content">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<About />} />
@@ -77,6 +78,7 @@ import PaymentDetails from "./pages/Admin/PaymentDetails";
         </div>
         <Footer />
       </Router>
+      </div>
     </ApolloProvider>
   );
 }
